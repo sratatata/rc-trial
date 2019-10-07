@@ -1,0 +1,51 @@
+Goals:
+ - Helps organize event series for HPI.PL and RC-TRIAL
+ - Helps judges to score players during OS
+ - Shows live statistics and events to the players
+
+Organizer:
+ - auth
+ - create organizer profile
+ - create event
+    - add os
+    - add categories
+    - add players
+    - invite the judge 
+ - create event series
+ - list events
+ - publish scoring table for event series
+ - publish scoring table for event
+
+Judge: 
+ - Add new os to event
+ - Select os
+    - edit os list
+        - notify other judges from category
+        - notify Organizer
+ - start first os, from random player
+ - player list
+    - select player
+    - color player with missing os or gate
+ - open os-player-scoring view
+    - add score flag touch 
+    - remove score flag touch
+    - add flag fall
+    - remove score flag touch
+    - add score back drive
+    - remove score back drive
+    - add usage of helper
+    - remove usage of helper
+    - add score repair/roll/hand touch 
+    - remove score for repair/roll/hand touch 
+    - add score for skipping gate
+    - remove score for skipping gate
+    - add/remove custom points with comment
+    - log all operations
+    - go to next person
+ - rules reminders for judge and players
+ - go to next os 
+
+player:
+ - open event series scoring table
+ - open event current scoring
+    - post a comment
