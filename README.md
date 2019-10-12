@@ -3,7 +3,7 @@ The little jury helper application for marking and calculating scoring.
 
 Initially, it's going to implement set of rules from rc-trial.pl and all credits for those should stay with rc-trial.pl. 
 
-##Roadmap
+## Roadmap
 ### 1.0
 * Web app with scoring board for jury/judge
 * Panel for event organizer
