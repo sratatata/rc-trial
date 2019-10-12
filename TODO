@@ -1,10 +1,10 @@
 Goals:
- - Helps organize event series for HPI.PL and RC-TRIAL
- - Helps judges to score players during OS
- - Shows live statistics and events to the players
+ - Help organize event series for HPI.PL and RC-TRIAL
+ - Help judges to score players during OS
+ - Show live statistics and events to the players
 
 Organizer:
- - auth
+ - for authenticated and authorized users only
  - create organizer profile
  - create event
     - add os
