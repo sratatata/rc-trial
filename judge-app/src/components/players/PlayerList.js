@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class PlayersList extends Component {
+class PlayerList extends Component {
     render() {
         return (
             <div className="container">
@@ -36,4 +36,4 @@ class PlayersList extends Component {
     }
 }
 
-export default PlayersList;
+export default PlayerList;

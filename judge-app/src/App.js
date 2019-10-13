@@ -1,9 +1,9 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
-import Home from './components/Home';
+import Home from './components/home/Home';
 import EventDashboard from './components/events/EventDashboard';
-import OsDetails from './components/os/OsDetails';
+import OsDetails from './components/os/OsDetail';
 import ScoreSheet from './components/scoring/ScoreSheet';
 
 function App() {

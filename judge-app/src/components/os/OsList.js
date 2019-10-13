@@ -1,21 +1,22 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-const OsList = () => {
+import { Link } from 'react-router-dom'
+const OsList = ({id, title, players}) => {
     return (
         <div className="container">
-            <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
-                    <span class="card-title">Odcinek Specjalny: 1</span>
+            <div className="card blue-grey darken-1">
+                <div className="card-content white-text">
+                    <span className="card-title">{title}</span>
                     <p>Zawodnicy</p>
                     <ul>
-                        <li>Gniewko: <span>142</span></li>
-                        <li>Peka: <span>12</span></li>
+                        {players && players.map(player => {
+                            return <li key={player.number}>{player.name}: {player.number}</li>
+                        })}
                     </ul>
                 </div>
-                <div class="card-action">
-                    <Link to="/os/1">Start</Link>
-                    <a href="#">Kontynuuj</a>
-                    <a href="#">Zamknij</a>
+                <div className="card-action">
+                    <Link to={`#/os/start/${id}`}>Start</Link>
+                    <Link to={`#/os/continue/${id}`}>Kontynuuj</Link>
+                    <Link to={`#/os/finish/${id}`}>Zamknij</Link>
                 </div>
             </div>
         </div>

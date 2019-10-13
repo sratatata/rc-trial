@@ -13,9 +13,8 @@ Initially, it's going to implement set of rules from rc-trial.pl and all credits
 #### Required software:
 In order to compile app `npm` have to be installed on system. On `Debian` based distributions, to install `npm` write:
 ```
-    npm install -g npm
+    sudo apt install nodejs
 ```
-`-g` parameter is optional, with it npm is installed *g*lobally (for all system users)
 
 #### Running app locally:
 In the project directory, you can run:

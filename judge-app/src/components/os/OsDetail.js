@@ -1,13 +1,13 @@
 import React from 'react';
-import PlayersList from '../players/PlayersList';
+import PlayerList from '../players/PlayerList';
 
-const OsDetails = () => {
+const OsDetail = () => {
     return (    
         <div className="container">
             <h1>Odcinek specjalny: 1</h1>
-            <PlayersList/>
+            <PlayerList/>
         </div>
     )
 }
 
-export default OsDetails;
+export default OsDetail;
