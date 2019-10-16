@@ -1,0 +1,12 @@
+## Git ignore is information for GIT to ignore some files of folders
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# ignore Intellij Idea local developer configuration files:
+**/*.iml
+**/.idea
+
+# ignore compliled output directory
+**/target
+**/build
+# ignore npm development specific files
+**/npm-debug.log
