@@ -1,0 +1,84 @@
+@startuml
+' Idea for model in Firebase store
+' Organizer
+class Organization{
+    Name
+    Logo
+}
+class Event{
+    Name
+    StartDate
+    EndDate
+    Description
+}
+
+class EventSeries
+class User{
+    Name
+    Email
+}
+class Judge
+class Driver
+class Role
+class CarCategory 
+class Invitation {
+    Link
+}
+class QRInvitation
+class Car{
+    Chassis
+    WheelBase
+    WheelDiameter
+}
+
+Driver -|> Role
+Judge -|> Role
+User ---> Role : is in
+(User,Role) .. AssignedTo
+Organization -> Event: organizes
+Organization -> EventSeries: creates
+EventSeries --* Event: joins
+User -> Organization: owner
+Organization -> CarCategory : defines
+Event -* CarCategory : has assigned
+(Event,CarCategory) .. JudgeAssignment 
+JudgeAssignment -> Judge : assigned to
+JudgeAssignment -> Invitation
+QRInvitation -|> Invitation
+Event -> Driver
+(Event,Driver) .. Car
+Car -> CarCategory
+
+' Judge
+class Event
+class Os
+class Log
+class LogEvent
+class Notification
+class Rules 
+class SpecialEvent
+
+Os *-- Event : consist of
+Event --> Log: has
+Log --o LogEvent
+Notification -> User : emmited by
+Notification --> LogEvent
+Judge -> LogEvent : creates
+SpecialEvent -|> LogEvent
+Judge -> SpecialEvent : creates
+SpecialEvent -> Rules: uses
+
+' Driver
+class Comment
+class ScoringBoard
+
+User <- Comment : post
+ScoringBoard o- Log : builds from
+ScoringBoard <|- EventScoringBoard
+ScoringBoard <|- GeneralScoringBoard
+ScoringBoard -> Comment
+
+User -> ScoringBoard : private
+Event -> EventScoringBoard
+EventSeries -> GeneralScoringBoard
+@enduml
