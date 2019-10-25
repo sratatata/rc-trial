@@ -1,84 +1,102 @@
 @startuml
 ' Idea for model in Firebase store
 ' Organizer
-class Organization{
-    Name
-    Logo
-}
-class Event{
-    Name
-    StartDate
-    EndDate
-    Description
-}
 
-class EventSeries
-class User{
-    Name
-    Email
-}
-class Judge
-class Driver
-class Role
-class CarCategory 
-class Invitation {
-    Link
-}
-class QRInvitation
-class Car{
-    Chassis
-    WheelBase
-    WheelDiameter
-}
+namespace organizer #DDDDDD {
+    class Car{
+        Chassis
+        WheelBase
+        WheelDiameter
+    }
 
-Driver -|> Role
-Judge -|> Role
-User ---> Role : is in
-(User,Role) .. AssignedTo
-Organization -> Event: organizes
-Organization -> EventSeries: creates
-EventSeries --* Event: joins
-User -> Organization: owner
-Organization -> CarCategory : defines
-Event -* CarCategory : has assigned
-(Event,CarCategory) .. JudgeAssignment 
-JudgeAssignment -> Judge : assigned to
-JudgeAssignment -> Invitation
-QRInvitation -|> Invitation
-Event -> Driver
-(Event,Driver) .. Car
-Car -> CarCategory
+    class Organization{
+        Name
+        Logo
+    }
+
+    class Event{
+        Name
+        StartDate
+        EndDate
+        Description
+    }
+
+    class EventSeries
+
+    class Role
+
+    class User{
+        Name
+        Email
+    }
+
+    class Judge
+
+    class Driver
+
+
+    class CarCategory
+
+    class Invitation {
+        Link
+    }
+
+    class QRInvitation
+
+
+    Event <-- Organization: organizes
+    Event *-- EventSeries: joins
+    Event -* CarCategory: has assigned
+    User -> Role : is in
+    Role <|--- Judge
+    Role <|-- Driver
+    Event <--- Driver
+    Car . (Event,Driver)
+    Car --> CarCategory
+    (User,Role) . AssignedTo
+    Organization --> EventSeries: creates
+    User --> Organization: owner
+    Organization --> CarCategory : defines
+    (CarCategory,Event) .. JudgeAssignment
+    JudgeAssignment --> Judge : assigned to
+    JudgeAssignment --> Invitation
+    Invitation <|-- QRInvitation
+}
 
 ' Judge
-class Event
-class Os
-class Log
-class LogEvent
-class Notification
-class Rules 
-class SpecialEvent
+namespace judge #DDDDDD{
+    class Event
+    class Os
+    class Log
+    class LogEvent
+    class Notification
+    class Rules
+    class SpecialEvent
 
-Os *-- Event : consist of
-Event --> Log: has
-Log --o LogEvent
-Notification -> User : emmited by
-Notification --> LogEvent
-Judge -> LogEvent : creates
-SpecialEvent -|> LogEvent
-Judge -> SpecialEvent : creates
-SpecialEvent -> Rules: uses
+    Os *-- Event : consist of
+    Event -> Log: has
+    Log --o LogEvent
+    organizer.User <-- Notification : emmited by
+    Notification --> LogEvent
+    organizer.Judge -> LogEvent : creates
+    LogEvent <|-- SpecialEvent
+    organizer.Judge -> SpecialEvent : creates
+    SpecialEvent -> Rules: uses
+}
 
 ' Driver
-class Comment
-class ScoringBoard
+namespace driver #DDDDDD {
+    class Comment
+    class ScoringBoard
 
-User <- Comment : post
-ScoringBoard o- Log : builds from
-ScoringBoard <|- EventScoringBoard
-ScoringBoard <|- GeneralScoringBoard
-ScoringBoard -> Comment
+    organizer.User <---- Comment : post
+    ScoringBoard o-- judge.Log : builds from
+    ScoringBoard <|---- organizer.EventScoringBoard
+    ScoringBoard <|-- GeneralScoringBoard
+    ScoringBoard --> Comment
 
-User -> ScoringBoard : private
-Event -> EventScoringBoard
-EventSeries -> GeneralScoringBoard
+    organizer.User ----> ScoringBoard : private
+    Event ----> organizer.EventScoringBoard
+    EventSeries ----> organizer.GeneralScoringBoard
+}
 @enduml
