@@ -13,9 +13,15 @@ const EventDashboard = () => {
     }
     const specialPart = [{
         title: "Odcinek Specjalny: 1",
+        id: 1,
         players: [
-            { id:1, name: "Gniewko", number: 142 }, 
-            { name: "Peka", number: 12 }
+            { 
+                id: 1, 
+                name: "Gniewko", 
+                number: 142 
+            }, 
+            { name: "Peka", number: 12, id: 21 },
+            { name: "Dupa Jaś", number: 66, id: 0}
         ]
     }]
     const notificationList = [
