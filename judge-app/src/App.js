@@ -4,7 +4,7 @@ import Navbar from './components/layout/Navbar';
 import Home from './components/home/Home';
 import EventDashboard from './components/events/EventDashboard';
 import OsDetails from './components/os/OsDetail';
-import ScoreSheet from './components/scoring/ScoreSheet';
+import ScoreSheet from './components/scoring';
 
 function App() {
   return (
