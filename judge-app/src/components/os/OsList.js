@@ -1,5 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { array, number, string } from "prop-types";
+
 const OsList = ({id, title, players}) => {
     return (
         <div className="container">
@@ -22,5 +24,11 @@ const OsList = ({id, title, players}) => {
         </div>
     );
 }
+
+OsList.propTypes = {
+    id: number.isRequired, 
+    title: string.isRequired, 
+    players: array.isRequired
+};
 
 export default OsList;

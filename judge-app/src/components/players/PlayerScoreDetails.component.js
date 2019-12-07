@@ -1,8 +1,12 @@
 import React, { Component } from "react";
+import { array, object } from "prop-types";
 import PlayerScoreDetails from './PlayerScoreDetails.container';
-import { array, object } from "prop-types"
 
 class PlayerScoreDetailsComponent extends Component {
+    static propTypes = {
+        scoreValues: object,
+        osList: array
+    };
     constructor(props) {
         super(props);
         this.state = {

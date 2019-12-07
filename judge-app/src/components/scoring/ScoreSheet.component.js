@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
-import ScoreSheet from './ScoreSheet.container'
+import { string, object, number } from "prop-types";
+import ScoreSheet from './ScoreSheet.container';
+
 class ScoreSheetComponent extends Component {
+    static propTypes = {
+        player: string.isRequired,
+        scoreboard: object.isRequired,
+        scoreSheetId: number.isRequired
+    };
     constructor(props) {
         super(props);
         this.state = { 

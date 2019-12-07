@@ -1,5 +1,6 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { number, object } from "prop-types";
 
 const PlayerScoreDetails = ({player, scoreboard, scoreSheetId}) => {
     const {reversalInGate, touchingFlag, overturningFlag, usingHoist, fixingModel, special} = scoreboard;
@@ -32,6 +33,12 @@ const PlayerScoreDetails = ({player, scoreboard, scoreSheetId}) => {
         </div>
     </div>
     )
+};
+
+PlayerScoreDetails.propTypes = {
+    player: object.isRequired,
+    scoreboard: object.isRequired,
+    scoreSheetId: number.isRequired
 };
 
 export default PlayerScoreDetails;

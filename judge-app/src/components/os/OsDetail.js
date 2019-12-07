@@ -10,4 +10,7 @@ const OsDetail = () => {
     )
 }
 
+OsDetail.propTypes = {
+};
+
 export default OsDetail;

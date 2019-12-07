@@ -1,10 +1,13 @@
 import React from 'react';
+import { array, object } from "prop-types";
+
 import EventHeadline from './EventHeadline';
 import OsList from '../os/OsList';
 import NotificationDetails from '../notifications/NotificationDetails';
 import HpiLogo from '../../assets/hpi-logo.png';
 
 const EventDashboard = () => {
+    
     const hpiWidget = { name: "HPI Poland", logo: HpiLogo }
     const eventHeadline = {
         title: "Hapejowo Wrzesień 2019",
@@ -46,6 +49,14 @@ const EventDashboard = () => {
             </div>
         </div>
     )
+    
 }
 
+EventDashboard.propTypes = {
+    hpiWidget: object.isRequired,
+    eventHeadline: object.isRequired,
+    footer: object.isRequired,
+    specialPart: object.isRequired,
+    notificationList: array
+};
 export default EventDashboard
