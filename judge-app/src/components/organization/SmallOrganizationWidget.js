@@ -1,4 +1,5 @@
 import React from 'react';
+import { string } from "prop-types";
 
 const SmallOrganizationWidget = ({name, logo}) => {
     return(
@@ -8,5 +9,9 @@ const SmallOrganizationWidget = ({name, logo}) => {
         </div>
     )
 }
+SmallOrganizationWidget.propTypes = {
+    name: string.isRequired,
+    logo: string.isRequired
+};
 
 export default SmallOrganizationWidget;

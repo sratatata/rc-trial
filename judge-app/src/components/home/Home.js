@@ -4,7 +4,8 @@ const Home = () => {
     return (
         <p>Hello Judge
         <br />
-        You can use links in navigation bar to move to given event</p>
+        You can use links in navigation bar to move to given event.<br />
+        </p>
     )
 }
 

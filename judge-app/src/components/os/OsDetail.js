@@ -1,5 +1,5 @@
 import React from 'react';
-import PlayerList from '../players/PlayerList';
+import PlayerList from '../players/index';
 
 const OsDetail = () => {
     return (    
@@ -9,5 +9,8 @@ const OsDetail = () => {
         </div>
     )
 }
+
+OsDetail.propTypes = {
+};
 
 export default OsDetail;

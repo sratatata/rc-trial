@@ -1,4 +1,6 @@
 import React from 'react';
+import { string, object } from "prop-types";
+
 import SmallOrganizationWidget from '../organization/SmallOrganizationWidget'
 
 const EventHeadline = ({title, content, widget}) => {
@@ -14,5 +16,11 @@ const EventHeadline = ({title, content, widget}) => {
         </div>
     )
 }
+
+EventHeadline.propTypes = {
+    title: string.isRequired,
+    content: object.isRequired,
+    widget: object.isRequired
+};
 
 export default EventHeadline;
